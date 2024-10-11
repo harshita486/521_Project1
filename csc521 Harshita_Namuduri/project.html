@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove Comments from C Program</title>
+</head>
+<body>
+
+<script>
+function removeCommentsAndCheckInvalid() {
+    // Use prompt to get C program input from the user
+    let input = prompt("Enter your C program:");
+
+    // Regex to match valid comments
+    const validCommentRegex = /\/\/.*|\/\*[\s\S]*?\*\//g;
+    // Regex to find potential invalid comments
+    const invalidCommentRegex = /(\/\*.*)|(.*\*\/)/;
+
+    if (invalidCommentRegex.test(input) && !validCommentRegex.test(input)) {
+        alert("Error: Invalid comment detected.");
+    } else {
+        const cleanedInput = input.replace(validCommentRegex, '');
+        alert("Program without comments:\n" + cleanedInput);
+    }
+}
+
+// Running the function to start the process
+removeCommentsAndCheckInvalid();
+</script>
+
+</body>
+</html>
